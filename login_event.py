@@ -16,8 +16,8 @@ def login_event(client,tree):
 
 def create_embed():
     embed=config.LOGIN_EMBED
-    home_size=get_disk_size("/home")
-    nas_size=get_disk_size("/media")
+    home_size=get_disk_size(config.HOME_PATH)
+    nas_size=get_disk_size(config.NAS_PATH)
     embed.add_field(name="ディスク使用量(home)",value=home_size)
     embed.add_field(name="ディスク使用量(NAS)",value=nas_size)
     
