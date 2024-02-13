@@ -7,7 +7,7 @@ def web_command(Interaction,tree):
         'start':"sudo systemctl start apache2",
         'stop':"sudo systemctl stop apache2",
         'restart':"sudo systemctl restart apache2",
-        'update':"bash /home/asuta/scripts/update_web.sh"
+        'update':"sudo bash /home/asuta/scripts/update_web.sh"
         }
         if text in commands:
             os.system(commands[text])
