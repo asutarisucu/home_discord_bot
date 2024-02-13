@@ -10,8 +10,8 @@ def web_command(Interaction,tree):
         'update':["cd /home/asuta/scripts","bash update_web.sh"]
         }
         if text in commands:
-            for cm in commands:
-                os.system(commands[text])
+            for cmd in commands[text]:
+                os.system(cmd)
             await interaction.response.send_message('コマンドが実行されました')
         else:
             await interaction.response.send_message('無効な引数です')
