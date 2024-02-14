@@ -1,8 +1,8 @@
-import discord
 import os
 def web_command(Interaction,tree):
     @tree.command(name='web',description='webサーバーに関するコマンドです')
     async def start(interaction: Interaction,text:str):
+        await interaction.response.defer()
         commands = {
         'start':"sudo systemctl start apache2",
         'stop':"sudo systemctl stop apache2",
@@ -11,6 +11,6 @@ def web_command(Interaction,tree):
         }
         if text in commands:
             os.system(commands[text])
-            await interaction.response.send_message('コマンドが実行されました')
+            await interaction.followup.send('コマンドが実行されました')
         else:
-            await interaction.response.send_message('無効な引数です')
+            await interaction.followup.send('無効な引数です')
