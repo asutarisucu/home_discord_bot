@@ -8,6 +8,7 @@ from discord.ui import View,Select
 from discord.app_commands import CommandTree
 from login_event import login_event
 from start_web import web_command
+from help import help_command
 
 
 intents = discord.Intents.default()
@@ -19,6 +20,7 @@ tree = app_commands.CommandTree(client)
 
 login_event(client,tree)
 web_command(Interaction,tree)
+help_command(Interaction,tree)
 
 
 # Discord Botを起動します
