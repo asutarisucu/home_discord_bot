@@ -1,7 +1,7 @@
 import os
 def web_command(Interaction,tree):
     @tree.command(name='web',description='webサーバーに関するコマンドです')
-    async def start(interaction: Interaction,text:str):
+    async def web(interaction: Interaction,text:str):
         await interaction.response.defer()
         commands = {
         'start':"sudo systemctl start apache2",

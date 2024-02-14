@@ -1,7 +1,7 @@
 import discord
-def help_command(Interaction,tree):
+def help_command(tree):
     @tree.command(name='help',description='コマンドヘルプを表示します')
-    async def start(interaction: Interaction):
+    async def help(interaction: discord.Interaction):
         await interaction.response.defer()
         embed=discord.Embed(
             color=0x7cfc00,
