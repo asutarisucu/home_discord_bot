@@ -1,4 +1,4 @@
-import subprocess
+import os
 import config
 import discord
 
@@ -8,10 +8,11 @@ def free_command(Interaction,tree):
     async def freecom(interaction: Interaction,text:str):
         await interaction.response.defer()
         try:
-            cmd=subprocess.run([text],stdout=subprocess.PIPE)
             embed=config.TRUE_EMBED
-            embed.add_field(name=text+"が実行されました",value=cmd.stdout)
+            cmd=os.popen(text).read().rstrip('\n')
+            embed.add_field(name=text+"が実行されました",value=cmd)
             await interaction.followup.send(embed=config.TRUE_EMBED)
+            embed.remove_field(0)
             
         except Exception as e:
             embed=config.ERROR_EMBED
