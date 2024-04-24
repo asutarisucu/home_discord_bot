@@ -8,5 +8,7 @@ def help_command(tree):
             title="command list"
         )
         embed.add_field(inline=False,name="web",value="start\nstop\nrestart\nupdate")
+        embed.add_field(inline=False,name="stop",value="オプションなし")
+        embed.add_field(inline=False,name="freecom",value="任意のコマンドを入力")
         await interaction.followup.send(embed=embed)
         

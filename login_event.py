@@ -1,6 +1,8 @@
 import discord
 import config
 import shutil
+
+
 def login_event(client,tree):
     @client.event
     async def on_ready():
@@ -10,9 +12,9 @@ def login_event(client,tree):
             if str(channel_list[i].id) == config.LOG_CHANNEL:
                 channel = channel_list[i] 
         embed=create_embed()
+        await tree.sync()##コマンドの同期
         await channel.send(embed=config.LOGIN_EMBED)##指定したチャンネルへの出力
         
-        await tree.sync()##コマンドの同期
 
 def create_embed():
     embed=config.LOGIN_EMBED
